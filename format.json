@@ -1,0 +1,23 @@
+// *Info Database*
+
+{
+	"staple": "salt",
+	"importer": "Ke Quality Salt",
+	"country": "Kenya"
+}
+
+// *Metadata Database*
+
+
+// Staple Properties
+{
+	"salt": ["importer"]
+}
+
+// Options
+{
+	"importer": {
+		"type" : "select",
+		"options" : ["Ke Quality Salt", "5 Star Salt", "Saltwater Salt"]
+	}
+}

@@ -1,0 +1,20 @@
+[{
+	"_id": "row-1",
+	"type": "row",
+	"importer": "Quality Salt",
+	"country": "Kenya",
+	"table": "salt"
+},
+{
+	"_id": "row-2",
+	"type": "row",
+	"importer": "I ♥︎ Salt",
+	"country": "Zimbabwe",
+	"table": "salt"
+},
+{
+	"_id": "row-3",
+	"type": "row",
+	"importer": "Importer A",
+	"table": "oil"
+}]

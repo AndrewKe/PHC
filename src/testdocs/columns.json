@@ -1,0 +1,18 @@
+[{
+  "type": "column",
+  "_id": "importer-salt",
+  "name": "importer",
+  "options" : ["Ke Quality Salt", "5 Star Salt", "Saltwater Salt"]
+}, {
+  "type": "column",
+  "_id": "country-salt",
+  "name": "country",
+  "options" : ["South Africa", "Kenya", "Malawai", "Nigeria"]
+},
+{
+  "type": "column",
+  "_id": "importer-oil",
+  "name": "importer",
+  "options" : ["Importer A", "Importer B", "Importer C", "Importer D"]
+}
+]

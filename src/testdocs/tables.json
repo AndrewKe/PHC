@@ -1,0 +1,12 @@
+[{
+  "type": "table",
+  "_id": "salt",
+  "name": "Salt",
+  "columns" : ["importer-salt", "country-salt"]
+},
+{
+  "type": "table",
+  "_id": "oil",
+  "name": "Oil",
+  "columns" : ["importer-oil"]
+}]

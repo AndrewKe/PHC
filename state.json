@@ -1,0 +1,21 @@
+{
+  "meta": { // Hydrated ahead of time
+    "tables": []
+  }
+  "selectedTable": "id",
+  "content": {
+    "rows": [],
+    "columns": []
+  }
+}
+
+/*
+
+Actions
+- selectTable(index)
+  - fires update columns/rows event
+- addTable(table)
+- addRow(row)
+  - fires update columns/rows event
+
+*/l
