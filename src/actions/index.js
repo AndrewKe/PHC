@@ -29,8 +29,13 @@ export function selectTable(id) {
 export function addRow(row) {
   return (dispatch, getState, getDB) => {
     const db = getDB()
+    const state = getState()
 
     row._id = String(new Date())
+    row.type = "row"
+    row.table = state.selectedTable
+
+    console.log(row);
 
     db.put(row).then(() => {
       dispatch(updateTableContent())

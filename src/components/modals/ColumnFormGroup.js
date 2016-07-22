@@ -1,14 +1,18 @@
 import React from 'react'
 import {FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
 
-const ColumnFormGroup = ({column}) => {
+const ColumnFormGroup = ({column, onChange}) => {
   return (
     <FormGroup controlId="formControlsSelect">
       <ControlLabel>{column.name}</ControlLabel>
-      <FormControl componentClass="select" placeholder="select">
+      <FormControl componentClass="select" placeholder="select" onChange = {
+          (e) => {
+            onChange(e.nativeEvent.target.value);
+          }
+        }>
         {
           (column.options.map((option) => {
-            return <option value="select">{option}</option>
+            return <option key = {option} value={option}>{option}</option>
           }))
         }
       </FormControl>
