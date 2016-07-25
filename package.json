@@ -7,6 +7,11 @@
     "build": "./node_modules/.bin/webpack",
     "watch": "./node_modules/.bin/webpack-dev-server --hot --inline"
   },
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/AndrewKe/PHC"
+  },
+  "license": "UNLICENSED",
   "devDependencies": {
     "babel-plugin-react-transform": "^2.0.2",
     "electron-prebuilt": "^1.2.0",
@@ -20,10 +25,13 @@
     "json-loader": "^0.5.4",
     "pouchdb": "^5.4.4",
     "pouchdb-find": "^0.10.2",
+    "react": "^15.2.1",
     "react-bootstrap": "^0.29.5",
+    "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "webpack": "^1.13.1"
   }
 }
