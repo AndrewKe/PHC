@@ -2,17 +2,33 @@
   "type": "column",
   "_id": "importer-salt",
   "name": "importer",
+  "inputType": "select",
   "options" : ["Quality Salt", "5 Star Salt", "Saltwater Salt"]
-}, {
+},
+{
   "type": "column",
   "_id": "country-salt",
   "name": "country",
-  "options" : ["South Africa", "Kenya", "Malawai", "Nigeria"]
+  "inputType": "select",
+  "options" : ["South Africa", "Kenya", "Malawi", "Nigeria"]
+},
+{
+  "type": "column",
+  "_id": "date",
+  "name": "date",
+  "inputType": "date"
 },
 {
   "type": "column",
   "_id": "importer-oil",
   "name": "importer",
+  "inputType": "select",
   "options" : ["Importer A", "Importer B", "Importer C", "Importer D"]
+},
+{
+  "type": "column",
+  "_id": "other",
+  "name": "other",
+  "inputType": "text"
 }
 ]

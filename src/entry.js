@@ -1,33 +1,32 @@
 // entry.js
+import ReactDOM from 'react-dom';
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import {selectTable} from './actions'
 import configureStore from './configureStore'
 import {destroyDB, addDocs, createIndexes} from './dbmanager'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './components/App'
+import Login from './components/Login'
+import './css/main.css'
 
-const columns = require('./testdocs/columns.json')
-const rows = require('./testdocs/rows.json')
-const tables =  require('./testdocs/tables.json')
+const store = configureStore()
 
-const testdocs = [].concat(rows,columns,tables)
+function checkAuth(nextState, replace) {
+	console.log("Check auth");
+	console.log(nextState);
+  let {isLoggedIn} = store.getState().user
+	if (!isLoggedIn) {
+		console.log("Not logged in");
+		replace('/login');
+	}
+}
 
-destroyDB()
-.then(() => addDocs(testdocs))
-.then(() => createIndexes())
-.then(() => {
-	const store = configureStore({
-		meta: {
-			tables: tables
-		}
-	})
-
-	store.dispatch(selectTable(tables[0]._id))
-
-	ReactDOM.render(
-		<Provider store = {store}>
-			<App/>
-		</Provider>, document.getElementById('react-root')
-	)
-})
+ReactDOM.render(
+	<Provider store = {store}>
+		<Router history={browserHistory}>
+			<Route path="/login" component={Login} />
+			<Route path="/" onEnter={checkAuth} component={App} />
+  	</Router>
+	</Provider>, document.getElementById('react-root')
+)

@@ -1,5 +1,7 @@
 import PouchDB from 'pouchdb'
 PouchDB.plugin(require('pouchdb-find'))
+PouchDB.plugin(require('pouchdb-authentication'));
+
 
 var db = new PouchDB('db')
 

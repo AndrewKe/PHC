@@ -2,13 +2,20 @@ import React, {Component} from 'react'
 import TableCell from './TableCell.js'
 import DataTableHeader from './DataTableHeader.js'
 import {Table} from 'react-bootstrap'
+import { showModal } from '../actions/modal'
 
 export default class DataTable extends Component {
+
   constructor(){
     super()
-    this.state = {
-      selectedRow : -1
-    }
+  }
+
+  rowClicked(row) {
+    console.log("Row: " + JSON.stringify(row));
+    this.props.dispatch(showModal('EDIT_DATA', {
+      columns: this.props.columns,
+      row: row
+    }))
   }
 
   render() {
@@ -16,11 +23,10 @@ export default class DataTable extends Component {
       const cells = this.props.columns.map((column, columnIndex) => {
         return <TableCell
           key = {columnIndex}
-          editing = {rowIndex == this.state.selectedRow}
           value = {row[column.name]}/>
       })
       return (
-        <tr key = {rowIndex}>
+        <tr key = {rowIndex} onClick = {() => this.rowClicked(row)}>
           {cells}
         </tr>
       )

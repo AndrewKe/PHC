@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
   context: __dirname + '/src',
-  entry: './entry.js',
+  entry: ['./entry.js'],
   devtool: 'source-map',
   output: {
     filename: 'bundle.js',
@@ -14,7 +14,10 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.json$/, loader: 'json', exclude: /node_modules/ }
+      { test: /\.json$/, loader: 'json', exclude: /node_modules/ },
+      { test: /\.css$/, loader: "style-loader!css-loader" },
     ]
   }
+
+  ,devServer: { historyApiFallback: true }
 };

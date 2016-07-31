@@ -1,21 +1,15 @@
 import React, {Component} from 'react'
 import { Modal , Button} from 'react-bootstrap'
 import ColumnFormGroup from './ColumnFormGroup.js'
-import {addRow} from '../../actions'
+import {updateRow, deleteRow} from '../../actions'
 import {connect} from 'react-redux'
 import {closeModal} from '../../actions/modal'
 
-class AddDataModal extends Component {
+class EditDataModal extends Component {
 
   constructor(props){
     super(props)
     this.state = {}
-
-    this.props.columns.map((column) => {
-      if (column.options){
-        this.state[column.name] =  column.options[0]
-      }
-    })
   }
 
   render() {
@@ -24,13 +18,13 @@ class AddDataModal extends Component {
     return (
       <Modal.Dialog>
           <Modal.Header>
-            <Modal.Title>Add Data</Modal.Title>
+            <Modal.Title>Edit Data</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
             {
               this.props.columns.map((column) => {
-                return <ColumnFormGroup key = {column.name} column = {column} onChange = {(value) => {
+                return <ColumnFormGroup initialValue = {this.props.row[column.name]} key = {column.name} column = {column} onChange = {(value) => {
                     this.setState({
                       [column.name]: value
                     })
@@ -40,15 +34,19 @@ class AddDataModal extends Component {
           </Modal.Body>
 
           <Modal.Footer>
+            <Button bsStyle="danger" onClick = {() => {
+                this.props.dispatch(deleteRow(this.props.row))
+                this.props.dispatch(closeModal())
+            }}>Delete</Button>
             <Button onClick = {() => this.props.dispatch(closeModal())}>Cancel</Button>
             <Button bsStyle="primary" onClick = {() => {
-                this.props.dispatch(addRow(this.state))
+                this.props.dispatch(updateRow(Object.assign(this.props.row, this.state)))
                 this.props.dispatch(closeModal())
-            }}>Add</Button>
+            }}>Save</Button>
           </Modal.Footer>
 
       </Modal.Dialog>)
   }
 }
 
-export default connect()(AddDataModal)
+export default connect()(EditDataModal)

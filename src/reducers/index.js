@@ -1,8 +1,14 @@
 import modal from './modal'
 import { combineReducers } from 'redux'
-
-function meta(state = {}, action){
+import user from './user.js'
+function meta(state = {
+  tables: []
+}, action){
   switch (action.type) {
+    case 'RECEIVE_TABLES':
+      return {
+        tables: action.tables
+      }
     default:
       return state
   }
@@ -46,7 +52,8 @@ const rootReducer = combineReducers({
   meta,
   selectedTable,
   tableContent,
-  modal
+  modal,
+  user
 })
 
 export default rootReducer

@@ -2,7 +2,7 @@
   "type": "table",
   "_id": "salt",
   "name": "Salt",
-  "columns" : ["importer-salt", "country-salt"]
+  "columns" : ["importer-salt", "country-salt", "date", "other"]
 },
 {
   "type": "table",

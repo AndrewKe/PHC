@@ -1,5 +1,3 @@
-import {getDB} from '../dbmanager'
-
 // Regular action creators
 function receiveRows(rows) {
   return {
@@ -15,6 +13,14 @@ function receiveColumns(columns) {
   }
 }
 
+function receiveTables(tables) {
+  return {
+    type: 'RECEIVE_TABLES',
+    tables: tables
+  }
+}
+
+
 // Public thunks
 export function selectTable(id) {
   return (dispatch, getState) => {
@@ -23,6 +29,24 @@ export function selectTable(id) {
       id: id
     })
     dispatch(updateTableContent())
+  }
+}
+
+export function loadTables() {
+  return (dispatch, getState, getDB) => {
+    const db = getDB()
+    const state = getState()
+
+    db.find({
+      selector: {type: 'table'},
+    }).then(function (result) {
+      dispatch(receiveTables(result.docs))
+      if (state.selectedTable === ''){
+        if(result.docs[0]){
+            dispatch(selectTable(result.docs[0]._id))
+        }
+      }
+    })
   }
 }
 
@@ -43,13 +67,35 @@ export function addRow(row) {
   }
 }
 
-// Private thunks
-function updateTableContent(){
+export function updateRow(updatedDoc) {
+  return (dispatch, getState, getDB) => {
+    const db = getDB()
+    const state = getState()
+
+    db.get(updatedDoc._id)
+    .then(doc => db.put(Object.assign(doc, updatedDoc)))
+    .then(() => dispatch(updateTableContent()))
+  }
+}
+
+export function deleteRow(doc) {
+  return (dispatch, getState, getDB) => {
+    const db = getDB()
+    const state = getState()
+
+    db.remove(doc)
+    .then(() => dispatch(updateTableContent()))
+  }
+}
+
+export function updateTableContent(){
   return (dispatch, getState) => {
     dispatch(updateColumns())
     dispatch(updateRows())
   }
 }
+
+// Private thunks
 
 function getFullSelectedTable(state){
   return state.meta.tables.find((table) => {
@@ -84,13 +130,3 @@ function updateRows() {
     })
   }
 }
-// export function updateRow(updatedRow) {
-//   return (dispatch, getState) => {
-//     const state = getState()
-//
-//     db.get(updatedDoc._id)
-//     .then(doc => db.put(Object.assign(doc, updatedDoc)))
-//     .then(() => db.allDocs({include_docs: true}))
-//     .then((docs) => dispatch(receiveDocs(docs)))
-//   }
-// }

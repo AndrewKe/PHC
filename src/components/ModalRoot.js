@@ -1,10 +1,12 @@
 // These are regular React components we will write soon
 import React from 'react'
 import AddDataModal from './modals/AddDataModal'
+import EditDataModal from './modals/EditDataModal'
 import {connect} from 'react-redux'
 
 const MODAL_COMPONENTS = {
   'ADD_DATA': AddDataModal,
+  "EDIT_DATA": EditDataModal
 }
 
 const ModalRoot = ({ modalType, modalProps, dispatch }) => {
