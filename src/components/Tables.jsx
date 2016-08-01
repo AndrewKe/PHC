@@ -3,7 +3,7 @@ import TableSelectorContainer from './TableSelectorContainer'
 import DataTableContainer from './DataTableContainer'
 import AddDataButton from './AddDataButton'
 import ModalRoot from './ModalRoot'
-import Login from './Login.js'
+import Login from './Login'
 
 const App = (props) => {
   return (

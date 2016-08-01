@@ -1,6 +1,6 @@
 import PouchDB from 'pouchdb'
 import { browserHistory } from 'react-router';
-import {loadTables, updateTableContent} from './index.js'
+import {loadTables, updateTableContent} from './index'
 
 export function login(username, password) {
   return (dispatch, _, getDB) => {

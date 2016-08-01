@@ -10,14 +10,16 @@ module.exports = {
     path: __dirname + '/build',
     publicPath: 'http://localhost:8080/build/'
   },
-
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.json$/, loader: 'json', exclude: /node_modules/ },
       { test: /\.css$/, loader: "style-loader!css-loader" },
     ]
-  }
+  },
 
-  ,devServer: { historyApiFallback: true }
+  devServer: { historyApiFallback: true }
 };

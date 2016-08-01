@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import DataTable from './DataTable.js'
+import DataTable from './DataTable'
 import { connect } from 'react-redux'
 import {updateDoc} from '../actions'
 

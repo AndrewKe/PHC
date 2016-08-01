@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 import rootReducer from './reducers'
-import {getDB} from './dbmanager.js'
+import {getDB} from './dbmanager'
 
 export default function configureStore(preloadedState) {
   const store = createStore(

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import TableCell from './TableCell.js'
-import DataTableHeader from './DataTableHeader.js'
+import TableCell from './TableCell'
+import DataTableHeader from './DataTableHeader'
 import {Table} from 'react-bootstrap'
 import { showModal } from '../actions/modal'
 
