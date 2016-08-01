@@ -4,12 +4,12 @@ import {loadTables, updateTableContent} from './index.js'
 
 export function login(username, password) {
   return (dispatch, _, getDB) => {
-    var users = new PouchDB('http://localhost:5984/db', {skipSetup: true});
+    var users = new PouchDB('http://192.241.130.191:5984/db', {skipSetup: true});
     users.login(username, password).then(() => {
       dispatch(loginSuccessful())
       users.getSession().then((response) => {
         const country = response.userCtx.roles[0]
-        var remote = new PouchDB(`http://localhost:5984/${country}`, {skipSetup: true});
+        var remote = new PouchDB(`http://192.241.130.191:5984/${country}`, {skipSetup: true});
         var local = getDB()
 
         local.sync(remote, {live: true, retry: true}).on('change', () => {
@@ -27,7 +27,7 @@ export function login(username, password) {
 
 export function logout() {
   return (dispatch) => {
-    var users = new PouchDB('http://localhost:5984/db', {skipSetup: true});
+    var users = new PouchDB('http://192.241.130.191:5984/db', {skipSetup: true});
     users.logout().then(() => {
       dispatch(logoutSuccessful())
     }).catch((err) => {

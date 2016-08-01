@@ -33,7 +33,6 @@ class Login extends Component {
             <ControlLabel>username</ControlLabel>
             <FormControl
               type="text"
-              value=""
               placeholder="username"
               onChange = {this.setUsername.bind(this)}
             />
@@ -41,8 +40,7 @@ class Login extends Component {
           <FormGroup>
             <ControlLabel>password</ControlLabel>
             <FormControl
-              type="text"
-              value=""
+              type="password"
               placeholder="password"
               onChange = {this.setPassword.bind(this)}
             />
