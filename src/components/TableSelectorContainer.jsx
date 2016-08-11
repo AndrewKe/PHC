@@ -21,7 +21,7 @@ const TableSelector = (props) => {
     <Grid>
       <Row>
         <Col xs={6} md={2}>
-          <span>Select Table: </span>
+          <span>Select Staple: </span>
           <select name="select" onChange={(event) => {props.selectTable(event.target.value)}}>
             {props.options.map((option) =>  <option key = {option._id}>{option._id}</option>)}
           </select>
