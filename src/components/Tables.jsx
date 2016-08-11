@@ -9,7 +9,6 @@ const App = (props) => {
   return (
     <div>
       <ModalRoot/>
-      <AddDataButton/>
       <TableSelectorContainer/>
       <DataTableContainer/>
     </div>

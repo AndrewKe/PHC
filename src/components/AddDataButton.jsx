@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { showModal } from '../actions/modal'
 
+
 const AddDataButton = (props) => {
   return <Button bsStyle="primary" onClick = {() => {
       props.dispatch(showModal('ADD_DATA', props.modalProps))
