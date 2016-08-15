@@ -2,36 +2,31 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import {selectTable} from '../actions'
 import AddDataButton from './AddDataButton'
-import {Grid} from 'react-bootstrap'
-import {Row} from 'react-bootstrap'
-import {Col} from 'react-bootstrap'
+import {Nav, Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap'
 
 const styles = {
-  button1: {
-    width: 20
-  },
-  button2: {
-    width: 30
+  flexHorizontal: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
   }
 }
 
 const TableSelector = (props) => {
   return (
-    <div style = {styles.button1}>
-    <Grid>
-      <Row>
-        <Col xs={6} md={2}>
-          <span>Select Staple: </span>
-          <select name="select" onChange={(event) => {props.selectTable(event.target.value)}}>
-            {props.options.map((option) =>  <option key = {option._id}>{option._id}</option>)}
-          </select>
-        </Col>
-        <Col xs={6} md={2}>
+    <Navbar>
+      <Nav>
+        <NavDropdown title="Select Staple" id="basic-nav-dropdown" onSelect={(eventKey) => props.selectTable(eventKey)}>
+          {props.options.map((option) =>  <MenuItem eventKey = {option._id}>{option._id}</MenuItem>)}
+        </NavDropdown>
+      </Nav>
+      <Nav pullRight>
+        <div style={styles.flexHorizontal}>
           <AddDataButton/>
-        </Col>
-      </Row>
-    </Grid>
-    </div>
+        </div>
+      </Nav>
+    </Navbar>
   )
 }
 
