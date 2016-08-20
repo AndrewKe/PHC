@@ -1,4 +1,4 @@
-// webpack.config.js
+// webpack.production.config.js
 var webpack = require('webpack');
 
 module.exports = {

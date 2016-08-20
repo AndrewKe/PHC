@@ -30,7 +30,7 @@ ReactDOM.render(
 	<Provider store = {store}>
 		<Router history={browserHistory}>
 			<Route path="/login" component={Login} />
-			<Route path="/" onEnter={checkAuth} component={NavBar}>
+			<Route path="/phc.html" onEnter={checkAuth} component={NavBar}>
 				<IndexRedirect to = "/tables"/>
 				<Route path = "/tables" component = {Tables}/>
 				<Route path = "/graphs" component = {Graphs}/>

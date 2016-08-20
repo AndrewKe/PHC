@@ -19,7 +19,7 @@ export function login(username, password) {
         })
 
         dispatch(loadTables())
-        browserHistory.replace('/');
+        browserHistory.replace('/phc.html');
       })
     })
   }
