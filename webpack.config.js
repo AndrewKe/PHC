@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = {
   context: __dirname + '/src',
   entry: ['./entry.js'],
-  devtool: 'source-map',
+  devtool: 'eval',
   output: {
     filename: 'bundle.js',
     path: __dirname + '/build',

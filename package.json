@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "./node_modules/.bin/electron .",
+    "start": "./node_modules/.bin/electron ./phc.html",
     "build": "./node_modules/.bin/webpack --config ./webpack.production.config.js --progress --colors --display-error-details",
     "watch": "./node_modules/.bin/webpack-dev-server --hot --inline"
   },
