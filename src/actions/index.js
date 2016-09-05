@@ -33,8 +33,8 @@ export function selectTable(id) {
 }
 
 export function loadTables() {
-  return (dispatch, getState, getDB) => {
-    const db = getDB()
+  return (dispatch, getState, getDbFunctions) => {
+    const db = getDbFunctions().getDB()
     const state = getState()
 
     db.find({
@@ -51,8 +51,8 @@ export function loadTables() {
 }
 
 export function addRow(row) {
-  return (dispatch, getState, getDB) => {
-    const db = getDB()
+  return (dispatch, getState, getDbFunctions) => {
+    const db = getDbFunctions().getDB()
     const state = getState()
 
     row._id = String(new Date())
@@ -68,8 +68,8 @@ export function addRow(row) {
 }
 
 export function updateRow(updatedDoc) {
-  return (dispatch, getState, getDB) => {
-    const db = getDB()
+  return (dispatch, getState, getDbFunctions) => {
+    const db = getDbFunctions().getDB()
     const state = getState()
 
     db.get(updatedDoc._id)
@@ -79,8 +79,8 @@ export function updateRow(updatedDoc) {
 }
 
 export function deleteRow(doc) {
-  return (dispatch, getState, getDB) => {
-    const db = getDB()
+  return (dispatch, getState, getDbFunctions) => {
+    const db = getDbFunctions().getDB()
     const state = getState()
 
     db.remove(doc)
@@ -104,9 +104,9 @@ function getFullSelectedTable(state){
 }
 
 function updateColumns(){
-  return (dispatch, getState, getDB) => {
+  return (dispatch, getState, getDbFunctions) => {
     const state = getState()
-    const db = getDB()
+    const db = getDbFunctions().getDB()
 
     var ids = getFullSelectedTable(state).columns
 
@@ -117,9 +117,9 @@ function updateColumns(){
 
 
 function updateRows() {
-  return (dispatch, getState, getDB) => {
+  return (dispatch, getState, getDbFunctions) => {
     const state = getState()
-    const db = getDB()
+    const db = getDbFunctions().getDB()
 
     db.find({
       selector: {type: 'row', table: state.selectedTable},
