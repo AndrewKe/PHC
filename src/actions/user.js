@@ -1,6 +1,9 @@
 import PouchDB from 'pouchdb'
 import { browserHistory } from 'react-router';
 import {loadTables, updateTableContent} from './index'
+import {updateDocs} from '../dbmanager.js'
+
+var seedDocs = require('../data/usa.json')
 
 export function login(username, password) {
   return (dispatch, _, getDbFunctions) => {
@@ -25,6 +28,18 @@ export function login(username, password) {
           userName: username,
           password: password
         })
+
+        /* updating metadata
+        console.log('updating data...')
+        updateDocs(seedDocs).then(
+          () => {
+            console.log('Done with updating data.')
+            local.sync(remote, {live: true, retry: true}).on('change', () => {
+              console.log("db changed after sync!");
+              dispatch(loadTables())
+              dispatch(updateTableContent())
+            })
+          })*/
       })
     })
   }

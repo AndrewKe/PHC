@@ -1,0 +1,127 @@
+[
+  {
+    "type": "table",
+    "_id": "salt",
+    "name": "Salt",
+    "columns" : [
+      "date", "iir_code-salt", "importer-salt",
+      "type-salt", "origin-salt", "brand-salt", "result-salt"]
+  },
+  {
+    "type": "table",
+    "_id": "oil",
+    "name": "Oil",
+    "columns" : [
+      "date", "iir_code-oil", "importer-oil",
+      "type-oil", "origin-oil", "brand-oil", "result-oil"
+    ]
+  },
+
+  {
+    "type": "column",
+    "_id": "date",
+    "name": "Date",
+    "inputType": "date"
+  },
+
+  {
+    "type": "column",
+    "_id": "iir_code-salt",
+    "name": "IIR Code",
+    "inputType": "text"
+  },
+  {
+    "type": "column",
+    "_id": "importer-salt",
+    "name": "Importer",
+    "inputType": "select",
+    "options" : [
+      "7/11 Supermarket", "A W S Trucking", "Agora", "Ally Enterprises",
+      "Amanita Ltd", "Amba Coal", "Anchor Industries", "Antonio Amando",
+      "Atlanta General Dealers", "Bakemans Confectionaries", "Bharat Trading",
+      "Bintec Importers", "Capital Bakery", "Central Poultry", "Central African Produce"
+    ]
+  },
+  {
+    "type": "column",
+    "_id": "type-salt",
+    "name": "Type",
+    "inputType": "select",
+    "options" : [
+      "Coarse", "Fine", "Other/NA"
+    ]
+  },
+  {
+    "type": "column",
+    "_id": "origin-salt",
+    "name": "Origin",
+    "inputType": "select",
+    "options" : [
+      "Botswana", "Dubai", "England", "Ghana", "India", "Japan", "Kemusalt",
+      "Kenya", "Mozambique", "Namibia"]
+  },
+  {
+    "type": "column",
+    "_id": "brand-salt",
+    "name": "Brand",
+    "inputType": "select",
+    "options" : [
+      "1 Salt", "Aadil", "Afri salt", "Ama Amanita foods", "Anapuna", "Astor",
+      "Best", "Bot Salt", "Buffalo"]
+  },
+  {
+    "type": "column",
+    "_id": "result-salt",
+    "name": "Result",
+    "inputType": "text"
+  },
+
+  {
+    "type": "column",
+    "_id": "iir_code-oil",
+    "name": "IIR Code",
+    "inputType": "text"
+  },
+  {
+    "type": "column",
+    "_id": "importer-oil",
+    "name": "Importer",
+    "inputType": "select",
+    "options" : [
+      "Shoprite", "Transglobe Produce Export", "Spider Corporation", "Sana",
+      "Vega Foods", "Chipiku Plus"
+    ]
+  },
+  {
+    "type": "column",
+    "_id": "type-oil",
+    "name": "Type",
+    "inputType": "select",
+    "options" : [
+      "Refined", "Other/NA"
+    ]
+  },
+  {
+    "type": "column",
+    "_id": "origin-oil",
+    "name": "Origin",
+    "inputType": "select",
+    "options" : [
+      "Kenya", "RSA", "Malawi"]
+  },
+  {
+    "type": "column",
+    "_id": "brand-oil",
+    "name": "Brand",
+    "inputType": "select",
+    "options" : [
+      "Bertoil", "CORI", "Dlite", "Hojiblanca", "KA", "Kazinga",
+      "Kori Oil", "Kukoma", "Maeva"]
+  },
+  {
+    "type": "column",
+    "_id": "result-oil",
+    "name": "Result",
+    "inputType": "text"
+  }
+]

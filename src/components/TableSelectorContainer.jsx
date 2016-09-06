@@ -10,6 +10,9 @@ const styles = {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center"
+  },
+  addDataBtn: {
+    backgroundColor: "#444444"
   }
 }
 
@@ -18,13 +21,11 @@ const TableSelector = (props) => {
     <Navbar>
       <Nav>
         <NavDropdown title="Select Staple" id="basic-nav-dropdown" onSelect={(eventKey) => props.selectTable(eventKey)}>
-          {props.options.map((option) =>  <MenuItem eventKey = {option._id}>{option._id}</MenuItem>)}
+          {props.options.map((option) =>  <MenuItem eventKey = {option._id}>{option.name}</MenuItem>)}
         </NavDropdown>
       </Nav>
       <Nav pullRight>
-        <div style={styles.flexHorizontal}>
-          <AddDataButton/>
-        </div>
+        <AddDataButton/>
       </Nav>
     </Navbar>
   )

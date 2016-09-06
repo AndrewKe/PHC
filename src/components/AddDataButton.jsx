@@ -1,13 +1,19 @@
 import React, {Component} from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, ButtonGroup } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { showModal } from '../actions/modal'
 
+const styles = {
+  addDataBtn: {
+    marginTop: "0.5em",
+    verticalAlign: "middle"
+  }
+}
 
 const AddDataButton = (props) => {
-  return <Button bsStyle="primary" onClick = {() => {
+  return (<ButtonGroup style={styles.addDataBtn}><Button bsStyle="danger" onClick = {() => {
       props.dispatch(showModal('ADD_DATA', props.modalProps))
-  }}>Add Data</Button>
+  }}>Add Data</Button></ButtonGroup>)
 }
 
 function mapStateToProps(state) {

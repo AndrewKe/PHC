@@ -36,9 +36,22 @@ export function destroyDB() {
   })
 }
 
-export function addDocs(docs){
+export function updateDocs(docs){
   return Promise.all(docs.map((doc) => {
-    return db.put(doc)
+    var db = getDB();
+    return db.get(doc._id).then((docFromDb) => {
+      if (docFromDb) {
+        doc = Object.assign(docFromDb, doc)
+      }
+      console.log('updating...')
+      console.log(docFromDb)
+      console.log(doc)
+      db.put(doc)
+    }).catch(() => {
+      console.log('creating...')
+      console.log(doc)
+      db.put(doc)
+    })
   }))
 }
 
