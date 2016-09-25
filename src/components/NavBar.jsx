@@ -9,7 +9,7 @@ class NavBar extends React.Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              PHC Food Fortification Tracker
+              National Fortification Monitoring System
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>

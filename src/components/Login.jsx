@@ -27,7 +27,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <h1>PHC</h1>
+        <h1>National Fortification Monitoring System</h1>
         <form>
           <FormGroup>
             <ControlLabel>username</ControlLabel>
