@@ -7,12 +7,12 @@ var seedDocs = require('../data/usa.json')
 
 export function login(username, password) {
   return (dispatch, _, getDbFunctions) => {
-    var users = new PouchDB('http://192.241.130.191:5984/db', {skipSetup: true});
+    var users = new PouchDB('https://jackke.cloudant.com/', {skipSetup: true});
     users.login(username, password).then(() => {
       dispatch(loginSuccessful())
       users.getSession().then((response) => {
         const country = response.userCtx.roles[0]
-        var remote = new PouchDB(`http://192.241.130.191:5984/${country}`, {skipSetup: true});
+        var remote = new PouchDB(`https://jackke.cloudant.com/${country}`, {skipSetup: true});
         var local = getDbFunctions().getDB()
 
         local.sync(remote, {live: true, retry: true}).on('change', () => {
